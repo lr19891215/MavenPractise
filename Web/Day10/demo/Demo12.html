@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="#" id="form">
+<input type="text" id="input">
+
+<select>
+    <option>请选择</option>
+    <option>男</option>
+    <option>女</option>
+</select>
+<input type="button" onclick="demo()" value="提交">
+</form>
+</body>
+</html>
+<script>
+
+    function demo() {
+        var input = document.getElementById("input");
+        if(input.value==""){
+            alert("请输入内容")
+        }else {
+            var f = document.getElementById("form");
+            f.submit();
+        }
+    }
+
+
+</script>

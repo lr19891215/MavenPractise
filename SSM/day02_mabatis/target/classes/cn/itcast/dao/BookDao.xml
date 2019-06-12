@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.itcast.dao.BookDao">
+    <resultMap id="map1" type="book">
+        <result property="kind.kname" column="kname"></result>
+    </resultMap>
+
+    <resultMap id="map2" type="book">
+        <id property="kind.kid" column="kid"></id>
+        <result property="kind.kname" column="kname"></result>
+    </resultMap>
+
+    <resultMap id="map3" type="book" autoMapping="true">
+        <!--<result property="bookName" column="bookname"></result>-->
+        <association property="kind" javaType="Kind" autoMapping="true">
+           <!--<result property="kname" column="kname"></result>-->
+            <!--<result property="kid" column="kid"></result>-->
+        </association>
+    </resultMap>
+    <sql id="sel">
+        select * from book
+    </sql>
+
+    <!--<select id="findByCase" parameterType="string" resultType="book">-->
+        <!--<include refid="sel"></include>-->
+        <!--<where>-->
+        <!--<if test="_parameter!=null">-->
+            <!--and bookname=#{str}-->
+        <!--</if>-->
+        <!--</where>-->
+    <!--</select>-->
+    <!--<select id="findInId" parameterType="list" resultType="book">-->
+        <!--<include refid="sel"></include>-->
+        <!--<where>-->
+            <!--<foreach collection="list" open="id in (" item="id" separator="," close=")">-->
+                <!--#{id}-->
+            <!--</foreach>-->
+        <!--</where>-->
+    <!--</select>-->
+
+    <select id="findBookKind" resultMap="map3">
+        select b.bookname,k.* from book b,kind k where b.kind_id=k.kid
+    </select>
+
+    <select id="find" resultType="book">
+        select * from book where <![CDATA[   price<100   ]]>
+    </select>
+</mapper>

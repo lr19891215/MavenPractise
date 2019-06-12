@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap HelloWorld</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+<form action="#" id="form">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4 text-right">
+            用户名:
+        </div>
+        <div class="col-lg-3">
+            <input type="text" class="form-control" name="user" id="user" onblur="chickuser()" placeholder="请输入用户名">
+            <span id="sp1"></span>
+        </div>
+    </div>
+    <div class="row" style="height: 10px"></div>
+    <div class="row">
+        <div class="col-lg-4 text-right">
+            密码:
+        </div>
+        <div class="col-lg-3">
+            <input type="password" class="form-control" name="password" id="password" onblur="chickpassword()" placeholder="请输入密码">
+            <span id="sp2"></span>
+        </div>
+    </div>
+    <div class="row" style="height: 10px"></div>
+    <div class="row">
+        <div class="col-lg-10 text-center">
+            <button type="button" class="btn btn-primary" onclick="chick()">注册</button>
+        </div>
+    </div>
+</div>
+</form>
+</body>
+</html>
+<script>
+
+    function chickuser() {
+        var input = document.getElementsByTagName("input");
+        var reg = /^\w{2,15}$/;
+        var sp1=document.getElementById("sp1");
+        if(reg.test(input[0].value)){
+            sp1.innerHTML="";
+            return true;
+        }else {
+            sp1.innerHTML="用户名不规范";
+            return false;
+        }
+    }
+
+    function chickpassword() {
+        var input = document.getElementsByTagName("input");
+        var reg = /^\d{6}$/;
+        var sp2=document.getElementById("sp2");
+        if(reg.test(input[1].value)){
+            sp2.innerHTML="";
+            return true;
+        }else {
+            sp2.innerHTML="密码不规范";
+            return false;
+        }
+    }
+
+    function chick() {
+        var form = document.getElementById("form");
+        if(chickuser()&&chickpassword()){
+            form.submit();
+        }else {
+            alert("用户名或密码有误")
+        }
+    }
+</script>

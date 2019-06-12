@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <context:component-scan base-package="cn.itcast"></context:component-scan>
+
+    <bean id="ds" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+        <property name="jdbcUrl" value="jdbc:mysql:///class1"></property>
+        <property name="user" value="root"></property>
+        <property name="password" value="root"></property>
+    </bean>
+    <!--使用SqlSessionFactoryBean来执行sql语句-->
+    <bean id="" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="ds"></property>
+        <property name="typeAliasesPackage" value="cn.itcast.domain"></property>
+    </bean>
+    <!--使用MapperScannerConfigurer来扫描xx.xml文件进内存-->
+    <bean id="" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="cn.itcast.dao"></property>
+    </bean>
+
+
+    <!--<bean id="jdbc" class="org.springframework.jdbc.core.JdbcTemplate">-->
+        <!--<constructor-arg name="dataSource" ref="ds"></constructor-arg>-->
+    <!--</bean>-->
+    <!--事务管理器-->
+    <bean id="tm" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="ds"></property>
+    </bean>
+    <tx:annotation-driven transaction-manager="tm"></tx:annotation-driven>
+    <!--&lt;!&ndash;定义事务执行规则&ndash;&gt;-->
+    <!--<tx:advice id="interceptor" transaction-manager="tm">-->
+        <!--<tx:attributes>-->
+            <!--&lt;!&ndash;指定trans方法需要事务支持 propagation="REQUIRED" 用于insert/update/delete&ndash;&gt;-->
+            <!--<tx:method name="trans" propagation="REQUIRED"/>-->
+            <!--&lt;!&ndash;propagation="SUPPORTS" 有无事务都执行,适用于selete&ndash;&gt;-->
+            <!--<tx:method name="*" propagation="SUPPORTS" read-only="true"></tx:method>-->
+        <!--</tx:attributes>-->
+    <!--</tx:advice>-->
+    <!--&lt;!&ndash;定义事务执行层面,通常是service层&ndash;&gt;-->
+    <!--<aop:config>-->
+        <!--&lt;!&ndash;advice-ref="interceptor"将定义规则引用到指定层面&ndash;&gt;-->
+        <!--<aop:advisor advice-ref="interceptor" pointcut="execution(* cn.itcast.service.impl.*.*(..))"></aop:advisor>-->
+    <!--</aop:config>-->
+</beans>

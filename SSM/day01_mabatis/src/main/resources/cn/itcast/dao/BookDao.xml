@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.itcast.dao.BookDao">
+    <select id="findAll" resultType="book">
+        select * from book
+    </select>
+    <insert id="save" parameterType="book">
+        <selectKey keyProperty="id" resultType="int" order="AFTER">
+            select last_insert_id()
+        </selectKey>
+        insert into book values (null,#{bookName},#{author},#{company},#{price},#{kind_id})
+    </insert>
+    <update id="update" parameterType="book">
+        update book set author=#{author},price=#{price} where id=#{id}
+    </update>
+    <delete id="del" parameterType="int">
+        delete from book where id=#{id}
+    </delete>
+    <select id="findByCompany" parameterType="string" resultType="book">
+        select * from book where company like #{company}
+    </select>
+    <select id="findTotal" resultType="int">
+        select count(id) from book
+    </select>
+    <select id="find" resultType="book">
+        select count(*) as total,ceil(count(*)/3) as pages from book
+    </select>
+    <select id="findMap" resultType="map">
+        select count(*) as total,ceil(count(*)/3) as pages from book
+    </select>
+    <select id="find1" parameterType="map" resultType="book">
+        select * from book where company=#{company} and price>#{price}
+    </select>
+    <select id="find2" parameterType="list" resultType="book">
+        select * from book where bookname=#{list[0]} or bookname=#{list[1]} or bookname=#{list[2]}
+    </select>
+</mapper>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="./loginSvt" method="post">
+        姓名:<input type="text" name="name" onmouseout="chickName()"><span id="sp1"></span><br>
+        生日:<input type="date" name="birthday"><br>
+        性别:<input type="radio" name="male" value="男" checked>男
+        <input type="radio" name="male" value="女">女<br>
+        英语成绩:<input type="number" name="eng"><br>
+        数学成绩:<input type="number" name="math"><br>
+        城区:<input type="text" name="town"><br>
+        地址:<input type="text" name="addr"><br>
+        email: <input type="text" name="email"><br>
+        手机号:<input type="number" name="phone" onmouseout="chickPhone()"><span id="sp2"></span><br>
+        <button>提交</button>
+    </form>
+    <br></br>
+    <font size="5">
+        目标:将数据成功添加到customer表<br>
+        要求:<br>
+        1: 使用druid连接数据库<br>
+        2: 使用jdbcTemplate来操作sql语句<br>
+        3: 完成姓名的和手机号的验证(姓名为任意字符2-15位长度  手机号为11位数字)<br>
+        4: 数据添加成功跳转到success.html  反之跳转到error.html<br>
+    </font>
+</body>
+</html>
+<script>
+    function chickName() {
+        var input = document.getElementsByTagName("input");
+        var reg = /^.{2,15}$/;
+        var sp1=document.getElementById("sp1");
+        if(reg.test(input[0].value)){
+            sp1.innerHTML="";
+            return true;
+        }else {
+            sp1.innerHTML="姓名不规范";
+            return false;
+        }
+    }
+
+    function chickPhone() {
+        var input = document.getElementsByTagName("input");
+        var reg = /^\d{11}$/;
+        var sp2=document.getElementById("sp2");
+        if(reg.test(input[9].value)){
+            sp2.innerHTML="";
+            return true;
+        }else {
+            sp2.innerHTML="手机号不规范";
+            return false;
+        }
+    }
+</script>

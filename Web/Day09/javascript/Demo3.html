@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        function demo(a,b) {
+            document.write(arguments[0]);
+            document.write(arguments[1]);
+            document.write(arguments.length);
+        }
+        demo(5,6);
+        var arr = new Array();
+        var array = [9,8,true,5,"aaa",2,1];
+        arr.push(3);
+        arr.push(6);
+        arr.push(9);
+        document.write(arr[1]);
+        document.write(array[2]);
+        document.write(array.length);
+        document.write("<hr>");
+        document.write(Math.floor(Math.random()*100+1));
+        document.write("<hr>");
+        var i = 3.145;
+        document.write(Math.round(i*100)/100);
+        document.write("<hr>");
+        var i = 12345;
+        var reg = /^\d{6}$/;
+        document.write(reg.test(i));
+        document.write("<hr>");
+        var str = "123";
+        document.write(parseInt(str)+1);
+        isNaN(NaN);
+        eval("var num = 456");
+        document.write(num);
+        document.write("<hr>");
+    </script>
+
+</head>
+<body>
+</body>
+</html>

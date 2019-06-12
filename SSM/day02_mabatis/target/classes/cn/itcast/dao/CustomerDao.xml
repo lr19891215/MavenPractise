@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.itcast.dao.CustomerDao">
+    <resultMap id="map1" type="customer">
+        <result property="name" column="name"></result>
+        <collection property="saleinfos" ofType="saleinfo">
+            <result column="bookname" property="book.bookname"></result>
+            <result column="price" property="book.price"></result>
+            <result column="nums" property="nums"></result>
+            <result column="prices" property="prices"></result>
+        </collection>
+    </resultMap>
+    <select id="findByName" resultMap="map1">
+        select c.name,b.bookname,b.price,s.nums,(b.price*s.nums) as prices
+        from book b,customer c,saleinfo s where s.bid=b.id and s.cid=c.id
+    </select>
+
+</mapper>

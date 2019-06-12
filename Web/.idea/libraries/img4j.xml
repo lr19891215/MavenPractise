@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="img4j">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/day15/lib/img4j.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="text" name = "text1"><br>
+    <input type="text" name = "text2"><br>
+    <input type="text" name = "text3"><br>
+    <input type="text" name = "text4" onclick="demo()">
+</body>
+</html>
+<script>
+    var arr = document.getElementsByTagName("input");
+    function demo() {
+        arr[3].value = eval(arr[0].value+arr[1].value+arr[2].value);
+    }
+</script>

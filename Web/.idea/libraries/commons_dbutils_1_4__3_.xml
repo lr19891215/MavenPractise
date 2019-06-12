@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="commons-dbutils-1.4 (3)">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/day14_Example/lib/commons-dbutils-1.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

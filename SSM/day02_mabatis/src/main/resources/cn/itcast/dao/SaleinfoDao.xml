@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.itcast.dao.SaleinfoDao">
+    <resultMap id="map" type="saleinfo">
+        <result column="date" property="date"></result>
+        <collection property="saleinfos" ofType="saleinfo">
+            <result column="name" property="customer.name"></result>
+            <result column="bookname" property="book.bookname"></result>
+            <result column="kname" property="book.kind.kname"></result>
+            <result column="nums" property="nums"></result>
+            <result column="price" property="book.price"></result>
+        </collection>
+    </resultMap>
+    <select id="findByDate" resultMap="map">
+        select date_format(s.sdate,'%Y-%m-%d') as date,c.name,b.bookname,k.kname,s.nums,b.price
+        from book b,customer c,saleinfo s,kind k where s.bid=b.id and s.cid=c.id and b.kind_id=k.kid
+    </select>
+</mapper>

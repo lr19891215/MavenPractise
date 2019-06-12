@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--第一种定义方法:直接定义-->
+    <!--<bean id="demo" class="cn.itcast.demo.Demo" scope="singleton"></bean>-->
+    <!--第二种定义方法:定义调用方法-->
+    <!--<bean id="demo2" class="cn.itcast.demo.Demo2"></bean>-->
+    <!--<bean id="demo3" factory-bean="demo2" factory-method="print"></bean>-->
+    <!--第三种定义方法:定义调用静态方法-->
+    <!--<bean id="demo4" class="cn.itcast.demo.Demo" factory-method="show"></bean>-->
+
+    <!--<bean id="demo5" class="cn.itcast.demo.Demo3">-->
+        <!--<constructor-arg name="name" value="10"></constructor-arg>-->
+        <!--<constructor-arg name="list" ref="array"></constructor-arg>-->
+    <!--</bean>-->
+    <!--<bean id="array" class="java.util.ArrayList"></bean>-->
+
+    <!--<bean id="demo" class="cn.itcast.demo.Demo">-->
+        <!--<property name="name" value="刘玄德"></property>-->
+        <!--<property name="list" ref="array"></property>-->
+    <!--</bean>-->
+    <!--<bean id="array" class="java.util.ArrayList"></bean>-->
+    <!--<bean id="ds" class="com.alibaba.druid.pool.DruidDataSource">-->
+        <!--<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>-->
+        <!--<property name="url" value="jdbc:mysql:///class1"></property>-->
+        <!--<property name="username" value="root"></property>-->
+        <!--<property name="password" value="root"></property>-->
+    <!--</bean>-->
+    <!--<bean id="conn" factory-bean="ds" factory-method="getConnection"></bean>-->
+    <bean id="demo3" class="cn.itcast.demo.Demo3">
+        <property name="list">
+            <list>
+                <value>1</value>
+                <value>2</value>
+                <value>3</value>
+            </list>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="1" value="a"></entry>
+            </map>
+        </property>
+    </bean>
+</beans>

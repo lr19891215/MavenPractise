@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单标签</title>
+</head>
+<body>
+    <form action="#" method="get">
+        用户名:<input type="text" name="user" placeholder="请输入用户名"><br>
+        密码:<input type="password" name="password" placeholder="请输入密码"><br>
+        性别:<input type="radio" name="sex" value="男" checked>男
+            <input type="radio" name="sex" value="女">女<br>
+        爱好:<br>
+        <input type="checkbox" name="hoppy" value="java">java
+        <input type="checkbox" name="hoppy" value="c++">c++
+        <input type="checkbox" name="hoppy" value="PHP">PHP<br>
+
+        隐藏域:<input type="hidden" name="aaa" value="bbb"><br>
+        生日:<input type="date" name="bday"><br>
+        手机号:<input type="number" name="phone"><br>
+        城市:<select name="city">
+                <option>请选择</option>
+                <option>武汉</option>
+                <option selected>上海</option>
+            </select><br>
+        自我介绍:<br>
+        <textarea name="desc" rows="3" cols="50"></textarea>
+        <br>
+        <input type="submit" value="确定">
+        <button>确定</button>
+    </form>
+</body>
+</html>

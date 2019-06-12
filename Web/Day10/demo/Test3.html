@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button id="btn" disabled style="width: 90px;height: 30px">10</button>
+</body>
+</html>
+<script>
+    var time = document.getElementById("btn");
+    var num=9;
+    function demo() {
+        time.innerHTML=num--;
+        if(num<0){
+            clearInterval(temp);
+            time.innerHTML="提交";
+            time.disabled = false;
+        }
+    }
+    var temp=setInterval(demo,1000);
+</script>

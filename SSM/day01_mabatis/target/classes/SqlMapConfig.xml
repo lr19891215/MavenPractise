@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 读取配置文件-->
+    <properties resource="jdbc.config.properties"></properties>
+    <!-- 批量取别名,返回javaBean时不用再写包名 -->
+    <typeAliases>
+        <package name="cn.itcast.domain"/>
+    </typeAliases>
+<environments default="mysql">
+    <environment id="mysql">
+        <transactionManager type="JDBC"></transactionManager>
+        <dataSource type="POOLED">
+            <property name="driver" value="${driver}"/>
+            <property name="url" value="${url}"/>
+            <property name="username" value="${username}"/>
+            <property name="password" value="${password}"/>
+        </dataSource>
+    </environment>
+</environments>
+    <mappers>
+        <!--可替换为一句引用整个包内xml文件<mapper resource="cn/itcast/dao/BookDao.xml"></mapper>-->
+        <package name="cn.itcast.dao"/>
+    </mappers>
+</configuration>

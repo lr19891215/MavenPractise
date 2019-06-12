@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <select>
+        <option>请选择</option>
+        <option>湖北</option>
+        <option>广东</option>
+    </select>
+
+    <select>
+        <option>请选择</option>
+    </select>
+
+    <select style="visibility: hidden">
+        <option>武汉</option>
+        <option>宜昌</option>
+        <option>襄阳</option>
+    </select>
+
+    <select style="visibility: hidden">
+        <option>广州</option>
+        <option>深圳</option>
+        <option>东莞</option>
+    </select>
+</body>
+</html>
+<script>
+    $("select:eq(0)").change(function () {
+        var city = $("select:eq(1)");
+        if($("select:eq(0)>option:selected").html()=="湖北"){
+            city.empty();
+            city.append($("select:eq(2)>option").clone());
+        }
+        if($("select:eq(0)>option:selected").html()=="广东"){
+            city.empty();
+            city.append($("select:eq(3)>option").clone());
+        }
+    });
+</script>

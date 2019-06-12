@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        p{
+            text-align: center;
+        }
+        span{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        <span id="time">5</span>秒后,自动跳转页面...
+    </p>
+</body>
+</html>
+<script>
+    var time = document.getElementById("time");
+    var num=5;
+    function demo() {
+        time.innerHTML=num--;
+        if(num<0){
+            clearInterval(temp);
+            location.href ="Demo3.html"
+        }
+    }
+    var temp=setInterval(demo,1000);
+</script>

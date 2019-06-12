@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.itcast.dao.KindDao">
+    <cache></cache>
+    <resultMap id="map" type="kind">
+        <result property="kname" column="kname"></result>
+        <collection property="books" ofType="book">
+            <result property="bookname" column="bookname"></result>
+        </collection>
+    </resultMap>
+
+
+    <select id="find" resultMap="map" useCache="true">
+        select b.bookname,k.* from book b,kind k where b.kind_id=k.kid
+    </select>
+
+</mapper>

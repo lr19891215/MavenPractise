@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="obtn">打开</button>
+<button id="cbtn">关闭</button>
+</body>
+</html>
+<script>
+    var obtn=document.getElementById("obtn");
+    var newwindow;
+    obtn.onclick= function () {
+        newwindow=window.open("Demo1.html");
+    }
+
+    var cbtn=document.getElementById("cbtn");
+    cbtn.onclick=function () {
+        newwindow.close();
+    }
+</script>

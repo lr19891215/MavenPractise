@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .div{
+            border: 1px solid greenyellow;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        aaaaaaaaa
+    </div>
+</body>
+</html>
+<script>
+    var d = document.getElementsByTagName("div")[0];
+    d.onclick= function () {
+        d.style.border="1px solid greenyellow";
+        d.className="div";
+    }
+</script>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img id="img" src="img/banner_1.jpg">
+</body>
+</html>
+<script>
+    // setInterval("demo()",2000);
+    // clearTimeout(demo,5000);
+    // function demo() {
+    //     alert(9527);
+    // }
+
+    var Array = ["img/banner_1.jpg","img/banner_2.jpg","img/banner_3.jpg"];
+    var num=0;
+
+    function fun () {
+        num++;
+        if(num>2){
+            num=0;
+        }
+        var img = document.getElementById("img");
+        img.src = Array[num];
+    }
+    setInterval(fun,1000)
+</script>

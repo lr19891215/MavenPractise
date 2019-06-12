@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="checkbox" onclick="demo()">
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+</body>
+</html>
+<script>
+    var box = document.getElementsByTagName("input");
+    function demo() {
+        var flag = box[0].checked;
+        for(var i =1;i<=box.length;i++){
+            box[i].checked = flag;
+        }
+    }
+</script>
