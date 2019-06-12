@@ -12,6 +12,6 @@ public class ItemsTest {
         ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring/ApplicationContext-service.xml");
         ItemsService itemsService = ac.getBean(ItemsService.class);
         Items items = itemsService.findById(1);
-        System.out.println(items.getName());
+        System.out.println(items);
     }
 }

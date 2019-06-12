@@ -13,6 +13,6 @@ public class ItemsTest {
         ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring/ApplicationContext-dao.xml");
         ItemsDao itemsDao = ac.getBean(ItemsDao.class);
         Items items = itemsDao.findById(1);
-        System.out.println(items.getName());
+        System.out.println(items);
     }
 }
