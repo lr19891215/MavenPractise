@@ -12,10 +12,10 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="maven" target="1.8" />
-      <module name="maven_dao" target="1.8" />
-      <module name="maven_service" target="1.8" />
-      <module name="maven_web" target="1.8" />
+      <module name="maven" target="1.5" />
+      <module name="maven_dao" target="1.5" />
+      <module name="maven_service" target="1.5" />
+      <module name="maven_web" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
